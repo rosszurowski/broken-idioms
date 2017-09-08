@@ -1,9 +1,10 @@
 {
   "name": "broken-idioms",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
   "scripts": {
+    "build": "NODE_ENV=production next build && next export -o dist && yarn build:404",
+    "build:404": "mv dist/_error/index.html dist/404.html && rm -r dist/_error",
     "start": "next"
   },
   "dependencies": {
@@ -13,5 +14,6 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "unescape": "^1.0.1"
-  }
+  },
+  "license": "MIT"
 }
