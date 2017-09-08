@@ -7,15 +7,27 @@ import reset from '@rosszurowski/vanilla';
 const ARENA_CHANNEL_ID = 'broken-idioms';
 
 
-export default class extends Component {
-  static async getInitialProps (ctx) {
-    const res = await fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_ID}/contents`);
-    const json = await res.json();
+export default class IndexPage extends Component {
+  state = {
+    data: []
+  }
 
-    return { data: json.contents.reverse() }
+  componentDidMount () {
+    fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_ID}/contents`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res;
+      })
+      .then(res => res.json())
+      .then(json => this.setState({ data: json.contents.reverse() }))
+      .catch(err => console.log(err));
   }
 
   render () {
+    const { data } = this.state;
+
     return (
       <main>
         <Head>
@@ -25,16 +37,25 @@ export default class extends Component {
           <meta name="description" content="Designer and developer from Toronto." />
         </Head>
         <h1>Broken Idioms</h1>
-        <ul>
-        {this.props.data.map(d => (
+        {data.length === 0 && (
+          <ul>
+            <li>{'—'}</li>
+            <li>&mdash;</li>
+            <li>&mdash;</li>
+          </ul>
+        )}
+        <ul className={data.length > 0 ? '' : 'display-none'}>
+        {data.map(d => (
           <li key={d.id}>
             {unescape(d.content)}
           </li>
         ))}
         </ul>
-        <div className="footer">
-          <a href="https://are.na/ross-zurowski/broken-idioms">Add your own &rarr;</a>
-        </div>
+        {data.length > 0 && (
+          <div className="footer">
+            <a href="https://are.na/ross-zurowski/broken-idioms">Add your own &rarr;</a>
+          </div>
+        )}
         <style jsx global>{reset}</style>
         <style jsx global>{`
           html {
@@ -63,6 +84,10 @@ export default class extends Component {
 
           ul {
             list-style: none;
+          }
+
+          ul.display-none {
+            display: none;
           }
 
           li::before {
