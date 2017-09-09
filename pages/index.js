@@ -51,11 +51,6 @@ export default class IndexPage extends Component {
           </li>
         ))}
         </ul>
-        {data.length > 0 && (
-          <div className="footer">
-            <a href="https://are.na/ross-zurowski/broken-idioms">Add your own &rarr;</a>
-          </div>
-        )}
         <style jsx global>{reset}</style>
         <style jsx global>{`
           html {
