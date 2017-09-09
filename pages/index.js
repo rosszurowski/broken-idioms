@@ -65,7 +65,7 @@ export default class IndexPage extends Component {
         <style jsx>{`
           main {
             padding-top: 6rem;
-            padding-bottom: 8rem;
+            padding-bottom: 12rem;
             max-width: 35em;
             width: 90%;
             margin-left: auto;
@@ -101,17 +101,6 @@ export default class IndexPage extends Component {
             margin-bottom: 1em;
             font-size: 1rem;
             line-height: 1.25;
-          }
-
-          .footer {
-            margin-top: 20vh;
-            font-family: SFMono-Regular, Monaco, Menlo, monospace;
-            font-size: 12px;
-          }
-
-          .footer a {
-            padding-bottom: 3px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
           }
         `}</style>
       </main>
