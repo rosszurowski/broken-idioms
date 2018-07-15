@@ -13,7 +13,7 @@ export default class IndexPage extends Component {
   }
 
   componentDidMount () {
-    fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_ID}/contents`)
+    fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_ID}/contents?per=200`)
       .then(res => {
         if (!res.ok) {
           throw new Error(res.statusText);
