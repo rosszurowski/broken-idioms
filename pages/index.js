@@ -34,7 +34,7 @@ export default class IndexPage extends Component {
           <meta charset="utf-8" />
           <title>Broken Idioms</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-          <meta name="description" content="Designer and developer from Toronto." />
+          <meta name="description" content="A collection of messed up idioms to sneak into conversations." />
         </Head>
         <h1>Broken Idioms</h1>
         {data.length === 0 && (
