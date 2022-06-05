@@ -1,6 +1,4 @@
 module.exports = {
-  exportPathMap: () => ({
-    '/': { page: '/' },
-    '/_error': { page: '_error' },
-  }),
+  reactStrictMode: true,
+  poweredByHeader: false,
 };
