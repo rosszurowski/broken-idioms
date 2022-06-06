@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import fetch from "isomorphic-fetch";
@@ -22,7 +22,7 @@ type Props = {
 export default function IndexPage(props: Props) {
   const { data } = props;
   return (
-    <main>
+    <>
       <Head>
         <meta charSet="utf-8" />
         <title>Broken Idioms</title>
@@ -35,20 +35,6 @@ export default function IndexPage(props: Props) {
           content="A collection of messed up idioms to sneak into conversations."
         />
       </Head>
-      <h1>
-        Broken Idioms <a href={`https://are.na/${ARENA_CHANNEL_SLUG}`}>✶✶</a>
-      </h1>
-      <ul>
-        {data.length === 0 ? (
-          <>
-            <li>&mdash;</li>
-            <li>&mdash;</li>
-            <li>&mdash;</li>
-          </>
-        ) : (
-          data.map((d) => <li key={d.id}>{unescape(d.content, "default")}</li>)
-        )}
-      </ul>
       <style jsx global>
         {reset}
       </style>
@@ -63,8 +49,7 @@ export default function IndexPage(props: Props) {
             font-size: 20px;
           }
         }
-      `}</style>
-      <style jsx>{`
+
         main {
           padding-top: 6rem;
           padding-bottom: 12rem;
@@ -115,7 +100,30 @@ export default function IndexPage(props: Props) {
           line-height: 1.25;
         }
       `}</style>
-    </main>
+      <main>
+        <h1>
+          Broken Idioms <a href={`https://are.na/${ARENA_CHANNEL_SLUG}`}>✶✶</a>
+        </h1>
+        <ul>
+          {data.length === 0 ? (
+            <>
+              <li>&mdash;</li>
+              <li>&mdash;</li>
+              <li>&mdash;</li>
+            </>
+          ) : (
+            data.map((d) => (
+              <li key={d.id}>{unescape(d.content, "default")}</li>
+            ))
+          )}
+        </ul>
+      </main>
+      <script
+        defer
+        data-domain="broken-idioms.com"
+        src="https://plausible.io/js/plausible.js"
+      ></script>
+    </>
   );
 }
 
