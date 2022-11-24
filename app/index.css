@@ -1,0 +1,109 @@
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+blockquote,
+figure {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img,
+svg,
+canvas,
+video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+html {
+  font-family: Georgia, Times, serif;
+  font-size: 17px;
+}
+
+@media only screen and (min-width: 560px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+main {
+  padding-top: 6rem;
+  padding-bottom: 12rem;
+  max-width: 35em;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 1rem;
+  margin-bottom: 12vh;
+}
+
+h1 a {
+  color: #454545;
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+}
+
+h1 a:hover {
+  color: #777;
+}
+
+ul {
+  list-style: none;
+}
+
+ul.display-none {
+  display: none;
+}
+
+li::before {
+  content: "*";
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  opacity: 0.5;
+  margin-left: -1.25em; /* same as padding-left set on li */
+  width: 1.25em;
+}
+
+li {
+  padding-left: 1.25em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1rem;
+  line-height: 1.25;
+}
